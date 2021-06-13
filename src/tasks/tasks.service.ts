@@ -10,7 +10,9 @@ export class TasksService {
     return this.tasks;
   }
 
-  cerateTask(title: string, description: string): Task {
+  cerateTask(createTaskDto): Task {
+    const { title, description } = createTaskDto;
+
     const task: Task = {
       id: uuid(),
       title,
