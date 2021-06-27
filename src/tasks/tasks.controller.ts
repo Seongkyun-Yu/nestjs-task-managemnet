@@ -23,6 +23,11 @@ export class TasksController {
     return this.tasksService.getTaskById(id);
   }
 
+  @Post()
+  createTask(@Body() createTaskDto: CreateTaskDto): Promise<Task> {
+    return this.tasksService.cerateTask(createTaskDto);
+  }
+
   // @Get()
   // getTasks(@Query() filterDto: GetTasksFilterDto): Task[] {
   //   if (Object.keys(filterDto).length) {

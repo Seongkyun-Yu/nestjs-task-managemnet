@@ -19,6 +19,10 @@ export class TasksService {
 
     return found;
   }
+
+  cerateTask(createTaskDto: CreateTaskDto): Promise<Task> {
+    return this.tasksRepository.cerateTask(createTaskDto);
+  }
   // private tasks: Task[] = [];
   // getAllTasks(): Task[] {
   //   return this.tasks;
