@@ -28,6 +28,11 @@ export class TasksController {
     return this.tasksService.cerateTask(createTaskDto);
   }
 
+  @Delete()
+  deleteTask(@Param('id') id: string): Promise<void> {
+    return this.tasksService.deleteTask(id);
+  }
+
   // @Get()
   // getTasks(@Query() filterDto: GetTasksFilterDto): Task[] {
   //   if (Object.keys(filterDto).length) {

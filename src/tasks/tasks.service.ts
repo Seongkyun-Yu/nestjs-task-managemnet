@@ -23,6 +23,14 @@ export class TasksService {
   cerateTask(createTaskDto: CreateTaskDto): Promise<Task> {
     return this.tasksRepository.cerateTask(createTaskDto);
   }
+
+  async deleteTask(id: string): Promise<void> {
+    const result = await this.tasksRepository.delete(id);
+
+    if (result.affected === 0)
+      throw new NotFoundException(`Task with ID "${id}" not found`);
+  }
+
   // private tasks: Task[] = [];
   // getAllTasks(): Task[] {
   //   return this.tasks;
