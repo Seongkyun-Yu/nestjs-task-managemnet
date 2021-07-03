@@ -8,6 +8,11 @@ export class UserRepository extends Repository<User> {
     const { username, password } = authCredentialsDto;
 
     const user = this.create({ username, password });
-    await this.save(user);
+
+    try {
+      await this.save(user);
+    } catch (error) {
+      console.log(error.code);
+    }
   }
 }
